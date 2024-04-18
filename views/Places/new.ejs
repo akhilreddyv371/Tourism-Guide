@@ -1,0 +1,29 @@
+<% layout('layouts/boilerplate') %>
+    <h1 class="text-center">Add a New Place</h1>
+    <!-- <h1><%= id %></h1> -->
+
+    <div class="row">
+        <div class="col-6 offset-3 mb-5">
+            <div class="card p-3">
+                <form action="/states/<%= id %>/places" method="post" novalidate class="validate-Form" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" required name="place[city]" id="city">
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" required name="place[title]" id="title">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="images" name="image" multiple>
+                        <label class="input-group-text" for="images">Upload</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" required name="place[description]" id="description"></textarea>
+                    </div>
+                    <button class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>

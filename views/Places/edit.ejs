@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %>
+    <h1 class="text-center">Edit a Place</h1>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form action="/states/<%= id %>/view/<%= place._id%>?_method=PUT" method="post" class="validate-Form" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" name="place[city]" id="city" value="<%= place.city%>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" name="place[title]" id="title" value="<%= place.title%>">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="place[description]" class="form-control"
+                        id="description"><%= place.description %></textarea>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="images" name="image" multiple>
+                    <label class="input-group-text" for="images">Add More Images</label>
+                </div>
+
+                <div class="mb-3">
+                    <% place.images.forEach( (img, i) => {%>
+                        <img src="<%=img.thumbnail%>" alt=""  class="img-thumbnail">
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+                        </div>
+                        <label for="image-<%=i%>">Delete?</label>
+                        <%}) %>
+                </div>
+
+                <button class="btn btn-success">Update</button><a href="/states/<%=id%>" class="btn btn-secondary mx-3">Back</a>
+            </form>
+
+           
+        </div>
+    </div>

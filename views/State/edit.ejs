@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+
+<body>
+    <form action="/states/<%= state._id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="state">State</label>
+            <input type="text" name="state[state]" id="state" class="form-control" value="<%= state.state%>"
+                placeholder="eg : Karnataka">
+        </div>
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="images">Upload</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="images" name="image"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="images">Choose file</label>
+            </div>
+          </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea class="form-control" type="text" rows="5" name="state[description]" id="description" " ><%= state.description %></textarea>
+        </div>
+        <button>Update</button>
+   
+    </form>
+</body>
+
+</html>
